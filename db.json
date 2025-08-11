@@ -1,29 +1,44 @@
 {
-    "users": [
-        {
-            "username": "jdfra",
-            "email": "admin@admin",
-            "password" : "admin123"
-        }
-    ],
-    
-    "products": [
-        {
-            "id": 1,
-            "name": "Producto 1",
-            "price": 100
-        },
-        {
-            "id": 2,
-            "name": "Producto 2",
-            "price": 200,
-            "amout": 10
-        },
-                {
-            "id": 3,
-            "name": "Producto 2",
-            "price": 200,
-            "amount": 4
-        }
-    ]
+  "users": [
+    {
+      "user": "jdfra",
+      "email": "admin@admin",
+      "password": "admin123",
+      "id": "306c",
+      "rol": "admin"
+    },
+    {
+      "id": "99c9",
+      "user": "Jesus",
+      "email": "jesus@admin",
+      "contra": "admin123",
+      "rol": "admin"
+    },
+    {
+      "id": "6994",
+      "name": "david",
+      "email": "david@user",
+      "contra": "admin123",
+      "rol": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Producto 1",
+      "price": 100
+    },
+    {
+      "id": "2",
+      "name": "Producto 2",
+      "price": 200,
+      "amout": 10
+    },
+    {
+      "id": "3",
+      "name": "Producto 2",
+      "price": 200,
+      "amount": 4
+    }
+  ]
 }
