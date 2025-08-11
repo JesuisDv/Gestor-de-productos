@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registrate</h1>
+      <form action="" id="formRegister">
+        <label for="userRegister">Usuario</label>
+        <input type="text" id="userRegister" placeholder="Elije un usuario" />
+
+        <label for="emailRegister">Correo Electronico</label>
+        <input
+          type="email"
+          placeholder="Escribe un email valido"
+          id="emailRegister"
+        />
+
+        <label for="passRegister">Contraseña</label>
+        <input
+          type="password"
+          placeholder="Elije una contraseña"
+          id="passRegister"
+        />
+
+        <select id="role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+
+        <button id="btnregister" type="submit">Registrarse</button>
+      </form>
+      <p>¿Ya tienes cuenta? <a href="../index.html">Iniciar Sesion</a></p>
+    </div>
+  </body>
+  <script src="./register.js"></script>
+</html>
