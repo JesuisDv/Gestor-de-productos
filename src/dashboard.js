@@ -1,3 +1,5 @@
+import { showLoader } from "../loading";
+
 const user = JSON.parse(localStorage.getItem("user"));
 const listProduct = document.getElementById("listProduct");
 
@@ -16,28 +18,33 @@ console.log(user);
 const productosList = document.getElementById("products");
 
 async function fetchProductos(){
-    const res  =await fetch("http://localhost:3000/products");
-    const data = await res.json();
-
-    productosList.innerHTML = ""; // 
-
-    data.forEach((producto) => {
-        let li = document.createElement("li");
-        li.innerHTML = `Nombre: ${producto.name} -  Precio: ${producto.price}`;
-
-        if(user.role == 'admin'){
-            const btn = document.createElement('button');
-            btn.textContent = 'Eliminar';
-            btn.onclick = async ()=>{
-            await fetch(`http://localhost:3000/products/${producto.id}`, {
-                method : 'DELETE'
-            });
-                fetchProductos();    
+    showLoader();
+    setTimeout(async() => {
+        const res  =await fetch("http://localhost:3000/products");
+        const data = await res.json();
+    
+        productosList.innerHTML = ""; // 
+    
+        data.forEach((producto) => {
+            let li = document.createElement("li");
+            li.innerHTML = `Nombre: ${producto.name} -  Precio: ${producto.price}`;
+    
+            if(user.role == 'admin'){
+                const btn = document.createElement('button');
+                btn.textContent = 'Eliminar';
+                btn.onclick = async ()=>{
+                await fetch(`http://localhost:3000/products/${producto.id}`, {
+                    method : 'DELETE'
+                });
+                    fetchProductos();    
+                }
+                li.appendChild(btn);
             }
-            li.appendChild(btn);
-        }
-        productosList.appendChild(li);
-    });
+            productosList.appendChild(li);
+        });
+
+    }, 2000);
+    
 }
 
 fetchProductos();
@@ -63,7 +70,10 @@ if(user.role == 'admin'){
 
 
 document.getElementById('logout').addEventListener('click', ()=>{
-    localStorage.removeItem('user');
-    window.location.href = '../index.html'
+    showLoader();
+    setTimeout(() => {
+        localStorage.removeItem('user');
+        window.location.href = '../index.html'
+    },1500);
 })
 
